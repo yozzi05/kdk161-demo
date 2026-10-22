@@ -1,0 +1,1024 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Кухни для Кухни</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Кухни для Кухни (КДК), Ростов-на-Дону: серийные кухни и кухни по индивидуальному проекту. Реальные работы, понятная стоимость за погонный метр, запрос предварительного расчёта. Демоверсия главной страницы.">
+<meta property="og:title" content="Кухни для Кухни — кухни под ваше пространство и бюджет">
+<meta property="og:description" content="Серийные кухни и индивидуальные проекты в Ростове-на-Дону и области. Демоверсия главной страницы.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: журнальный разворот — асимметричные сетки, крупные фото реальных работ, тонкие линейки
+   вместо карточек; техническая «чертёжная» подпись (мм, м/п) как голос мастерской. */
+:root{
+  --paper:#F7F4EF; --stone:#ECE6DC; --milk:#FCFBF8; --ink:#222527; --ink-2:#585C5F;
+  --line:#DBD3C6; --green:#1E4A3B; --green-2:#2B6150; --on-green:#F4F1EA; --green-tint:#E3EBE5;
+  --wood:#9C6B3F; --wood-soft:#E7D7C3; --error:#A3321F; --focus:#2B6150;
+  --f-body:"Onest", "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+  --f-mono:"JetBrains Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  --r:6px; --r-lg:10px; --header-h:64px; --maxw:1240px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#151816; --stone:#1D211F; --milk:#191C1A; --ink:#ECE8E1; --ink-2:#A9A69F;
+  --line:#323834; --green:#2E6B56; --green-2:#8CC2AB; --on-green:#F4F1EA; --green-tint:#1F2B26;
+  --wood:#D0A274; --wood-soft:#3A2F25; --error:#F08B76; --focus:#8CC2AB; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --paper:#151816; --stone:#1D211F; --milk:#191C1A; --ink:#ECE8E1; --ink-2:#A9A69F;
+  --line:#323834; --green:#2E6B56; --green-2:#8CC2AB; --on-green:#F4F1EA; --green-tint:#1F2B26;
+  --wood:#D0A274; --wood-soft:#3A2F25; --error:#F08B76; --focus:#8CC2AB; color-scheme:dark }
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.55;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--paper)}
+img{max-width:100%;display:block;height:auto}
+a{color:inherit}
+h1,h2,h3{text-wrap:balance;margin:0;font-weight:600;letter-spacing:-.02em}
+p{margin:0}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:3px}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.vh:focus{position:fixed!important;left:12px;top:12px;width:auto;height:auto;clip:auto;z-index:100;background:var(--green);color:var(--on-green);padding:12px 16px;border-radius:var(--r)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+@media (min-width:760px){.wrap{padding-left:max(32px,env(safe-area-inset-left,0px));padding-right:max(32px,env(safe-area-inset-right,0px))}}
+section{scroll-margin-top:calc(var(--header-h) + 12px)}
+.sec{padding-block:clamp(64px,9vw,128px)}
+.eyebrow{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.h2{font-size:clamp(30px,4.2vw,52px);line-height:1.08}
+.lead{font-size:clamp(17px,1.5vw,19px);color:var(--ink-2);max-width:60ch}
+.mono{font-family:var(--f-mono)}
+.num{font-variant-numeric:tabular-nums}
+
+/* Кнопки */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:12px 22px;border-radius:var(--r);
+  font:600 16px/1.2 var(--f-body);text-decoration:none;cursor:pointer;border:1.5px solid transparent;transition:background .2s,color .2s,border-color .2s}
+.btn-primary{background:var(--green);color:var(--on-green)}
+.btn-primary:hover{background:var(--green-2);color:var(--on-green)}
+:root[data-theme="dark"] .btn-primary:hover{color:#10231C}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .btn-primary:hover{color:#10231C}}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:var(--paper)}
+.btn-light{background:var(--on-green);color:#1E4A3B}
+.btn-light:hover{background:#fff}
+.btn-sm{min-height:44px;padding:10px 16px;font-size:15px}
+.link{color:var(--green-2);font-weight:500;text-underline-offset:3px}
+.arrow::after{content:"→";font-weight:400}
+
+/* Шапка */
+.header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--paper) 94%,transparent);
+  backdrop-filter:saturate(1.2) blur(8px);border-bottom:1px solid var(--line)}
+.header .wrap{display:flex;align-items:center;gap:20px;height:var(--header-h)}
+.brand{display:flex;align-items:baseline;gap:10px;text-decoration:none;min-height:44px;align-items:center;flex-shrink:0}
+.brand-mark{font-weight:700;font-size:22px;letter-spacing:.04em;color:var(--green-2)}
+.brand-name{font-size:14px;color:var(--ink-2);line-height:1.15}
+.nav{display:flex;gap:4px;margin-left:auto}
+.nav a{white-space:nowrap;text-decoration:none;font-size:15px;padding:10px 12px;border-radius:var(--r);min-height:44px;display:inline-flex;align-items:center}
+.nav a:hover{background:var(--stone)}
+.h-phone{font-weight:600;font-size:15px;text-decoration:none;white-space:nowrap;min-height:44px;display:inline-flex;align-items:center}
+.menu-btn{display:none;margin-left:auto;width:44px;height:44px;border:1px solid var(--line);background:var(--milk);border-radius:var(--r);cursor:pointer;color:var(--ink);align-items:center;justify-content:center}
+.menu-btn svg{width:22px;height:22px}
+@media (max-width:1080px){.h-phone{display:none}}
+@media (max-width:900px){
+  .menu-btn{display:inline-flex}
+  .header .btn{margin-left:auto}.menu-btn{margin-left:0}
+  .nav{position:absolute;left:0;right:0;top:100%;flex-direction:column;gap:0;background:var(--paper);border-bottom:1px solid var(--line);
+    padding:8px max(16px,env(safe-area-inset-right,0px)) 20px max(16px,env(safe-area-inset-left,0px));display:none}
+  .nav.open{display:flex}
+  .nav a{font-size:18px;padding:12px 4px;border-bottom:1px solid var(--line);border-radius:0}
+  .nav .nav-phone{display:flex;flex-direction:column;align-items:flex-start;gap:2px;border-bottom:0;padding-top:16px}
+}
+.nav .nav-phone{display:none}
+@media (max-width:760px){.header .btn{display:none}.menu-btn{margin-left:auto}}
+@media (max-width:900px){.nav .nav-phone{display:flex}}
+
+/* Первый экран */
+.hero{padding-block:clamp(28px,5vw,64px) clamp(40px,6vw,80px)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,4vw,64px);align-items:center}
+.hero h1{font-size:clamp(36px,4.4vw,62px);line-height:1.02;letter-spacing:-.03em;margin-top:16px}
+.hero .lead{margin-top:20px}
+.geo{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:20px;font-size:15px;color:var(--ink-2)}
+.geo b{color:var(--ink);font-weight:500}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.next-step{margin-top:16px;font-size:15px;color:var(--ink-2);max-width:46ch;padding-left:14px;border-left:2px solid var(--wood)}
+.hero-fig{margin:0;position:relative}
+.hero-fig img{width:100%;aspect-ratio:5/4;object-fit:cover;border-radius:var(--r-lg)}
+.fig-cap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 16px;margin-top:12px;font-size:14px;color:var(--ink-2)}
+.fig-cap .mono{font-size:12.5px}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);margin-top:clamp(36px,5vw,64px)}
+.facts > div{padding:18px 20px 0 0}
+.facts dt{font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
+.facts dd{margin:6px 0 0;font-size:16px;font-weight:500}
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr}
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:520px){
+  .hero h1{font-size:clamp(32px,9vw,40px)}
+  .cta-row .btn{width:100%}
+  .hero-fig img{aspect-ratio:4/3}
+}
+
+/* Выбор */
+.choice-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:end;margin-bottom:clamp(32px,4vw,56px)}
+.paths{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(16px,2vw,28px)}
+.path{display:flex;flex-direction:column;border-radius:var(--r-lg);overflow:hidden}
+.path img{width:100%;aspect-ratio:16/10;object-fit:cover}
+.path-body{padding:clamp(22px,3vw,40px);display:flex;flex-direction:column;gap:16px;flex:1}
+.path h3{font-size:clamp(26px,2.6vw,34px);line-height:1.1}
+.path ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.path li{padding-left:22px;position:relative}
+.path li::before{content:"";position:absolute;left:0;top:.7em;width:12px;height:1.5px;background:currentColor;opacity:.6}
+.path .meta{font-family:var(--f-mono);font-size:13px;opacity:.85;margin-top:auto;padding-top:8px}
+.path .btn{align-self:flex-start}
+.path-serial{background:var(--stone)}
+.path-custom{background:var(--green);color:var(--on-green)}
+.path-custom .meta{color:var(--on-green)}
+.extras{margin-top:clamp(24px,3vw,40px);display:grid;grid-template-columns:auto 1fr;gap:12px 32px;align-items:baseline;padding-top:20px;border-top:1px solid var(--line)}
+.extras p{color:var(--ink-2);font-size:15px}
+.extras ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px 20px;font-size:15px}
+.extras li{white-space:nowrap}
+.extras li::before{content:"· ";color:var(--wood)}
+@media (max-width:820px){.choice-head,.paths{grid-template-columns:1fr}.extras{grid-template-columns:1fr}.path .btn{align-self:stretch}}
+
+/* Проекты */
+.projects{background:var(--milk);border-block:1px solid var(--line)}
+.p-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px 40px;margin-bottom:clamp(28px,4vw,48px)}
+.p-head .lead{max-width:44ch}
+.p-row{display:grid;gap:clamp(16px,2vw,28px)}
+.p-row + .p-row{margin-top:clamp(36px,4vw,56px)}
+.p-row.r1{grid-template-columns:minmax(0,1.45fr) minmax(0,1fr)}
+.p-row.r2{grid-template-columns:minmax(0,1fr) minmax(0,1.45fr)}
+.card{display:flex;flex-direction:column;gap:16px;min-width:0}
+.ph{position:relative;display:block;width:100%;padding:0;border:0;background:var(--stone);border-radius:var(--r-lg);overflow:hidden;cursor:zoom-in;height:clamp(260px,34vw,500px)}
+.ph img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.ph:hover img{transform:scale(1.025)}
+.ph .badge{position:absolute;left:12px;bottom:12px;background:rgba(20,24,22,.78);color:#F4F1EA;font:500 12.5px/1 var(--f-mono);padding:8px 10px;border-radius:4px;letter-spacing:.03em}
+.card h3{font-size:clamp(22px,2vw,26px);line-height:1.15}
+.card .kind{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--wood)}
+.specs{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 16px;font-size:15px}
+.specs dt{color:var(--ink-2)}
+.specs dd{margin:0}
+.card .price-note{font-size:14px;color:var(--ink-2)}
+.card .btn{align-self:flex-start}
+.p-foot{margin-top:clamp(28px,3vw,40px);font-size:14px;color:var(--ink-2);max-width:70ch}
+@media (max-width:820px){.p-row.r1,.p-row.r2{grid-template-columns:1fr}.ph{height:auto;aspect-ratio:4/3}.card .btn{align-self:stretch}}
+
+/* Стоимость */
+.cost-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,80px);margin-top:clamp(28px,4vw,48px)}
+.factors{list-style:none;margin:0;padding:0}
+.factors li{display:grid;grid-template-columns:44px 1fr;gap:4px 16px;padding:20px 0;border-top:1px solid var(--line)}
+.factors li:last-child{border-bottom:1px solid var(--line)}
+.factors svg{width:32px;height:32px;color:var(--wood);grid-row:span 2}
+.factors h3{font-size:19px;letter-spacing:-.01em}
+.factors p{color:var(--ink-2);font-size:15.5px}
+.mp{background:var(--stone);border-radius:var(--r-lg);padding:clamp(20px,3vw,36px);display:flex;flex-direction:column;gap:18px}
+.mp svg{width:100%;height:auto;color:var(--ink)}
+.mp .quote{font-size:clamp(19px,1.8vw,23px);line-height:1.3;font-weight:500;letter-spacing:-.01em}
+.mp small{font-size:14px;color:var(--ink-2)}
+.scale-wrap{margin-top:clamp(40px,5vw,72px)}
+.scale-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 32px;align-items:end;margin-bottom:16px}
+.scale-head h3{font-size:clamp(22px,2.2vw,28px)}
+.scale-head p{font-size:14px;color:var(--ink-2);max-width:56ch}
+.axis,.model{display:grid;grid-template-columns:minmax(120px,190px) minmax(0,1fr) 120px;gap:16px;align-items:center}
+.axis{font:12px var(--f-mono);color:var(--ink-2);padding-bottom:6px;border-bottom:1px solid var(--line)}
+.axis .ticks{position:relative;height:16px}
+.axis .ticks span{position:absolute;transform:translateX(-50%);white-space:nowrap}
+.axis .ticks span:first-child{transform:none}
+.axis .ticks span:last-child{transform:translateX(-100%)}
+.models{list-style:none;margin:0;padding:0}
+.model{width:100%;min-height:44px;padding:6px 0;border:0;border-bottom:1px solid var(--line);background:transparent;color:var(--ink);font:inherit;text-align:left;cursor:pointer}
+.model:hover{background:var(--stone)}
+.model .nm{font-weight:500;font-size:15.5px}
+.model .nm small{display:block;font-weight:400;font-size:12.5px;color:var(--ink-2)}
+.model .track{position:relative;height:12px}
+.model .track::before{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:var(--line)}
+.model .dot{position:absolute;top:50%;width:12px;height:12px;border-radius:50%;background:var(--green-2);transform:translate(-50%,-50%)}
+.model .pr{font-size:14.5px;text-align:right;white-space:nowrap}
+.model .pr small{color:var(--ink-2)}
+.terms{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,3vw,40px);margin-top:clamp(36px,4vw,56px);padding-top:24px;border-top:1px solid var(--ink)}
+.terms h3{font-size:17px;margin-bottom:8px}
+.terms p{font-size:15px;color:var(--ink-2)}
+.cost-cta{margin-top:clamp(32px,4vw,48px);display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center}
+.cost-cta p{color:var(--ink-2);font-size:15px;max-width:52ch}
+@media (max-width:820px){
+  .cost-grid,.terms{grid-template-columns:1fr}
+  .axis,.model{grid-template-columns:minmax(0,1fr) 108px}
+  .axis .lbl{display:none}.axis .ticks{grid-column:1/-1}
+  .model .track{grid-column:1/-1;grid-row:2}
+  .cost-cta .btn{width:100%}
+}
+
+/* Процесс */
+.process{background:var(--stone)}
+.steps{list-style:none;margin:clamp(32px,4vw,56px) 0 0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(16px,2vw,28px);counter-reset:s}
+.steps li{border-top:2px solid var(--ink);padding-top:18px;display:flex;flex-direction:column;gap:10px;counter-increment:s}
+.steps li::before{content:counter(s);font:500 40px/1 var(--f-body);color:var(--wood);letter-spacing:-.03em}
+.steps h3{font-size:18px;line-height:1.25;letter-spacing:-.01em}
+.steps p{font-size:15px;color:var(--ink-2)}
+.steps .res{font-size:14px;color:var(--ink);padding-top:10px;border-top:1px dashed var(--line);margin-top:auto}
+.steps .res b{font-family:var(--f-mono);font-weight:500;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--green-2);display:block;margin-bottom:2px}
+@media (max-width:1000px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.steps{grid-template-columns:1fr}.steps li{display:grid;grid-template-columns:44px 1fr;column-gap:12px}.steps li>*{grid-column:2}.steps li::before{grid-row:span 3;font-size:30px}}
+
+/* Доверие */
+.trust-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) minmax(0,1fr);gap:clamp(16px,3vw,40px);margin-top:clamp(28px,4vw,48px)}
+.trust-grid > div{display:flex;flex-direction:column;gap:12px;padding-top:20px;border-top:1px solid var(--line)}
+.trust-grid h3{font-size:20px}
+.trust-grid p,.trust-grid li{font-size:15.5px;color:var(--ink-2)}
+.trust-grid ul{margin:0;padding:0;list-style:none;display:grid;gap:6px}
+.reviews{background:var(--green-tint);border-radius:var(--r-lg);padding:24px!important;border-top:0!important}
+@media (max-width:900px){.trust-grid{grid-template-columns:1fr}}
+
+/* FAQ */
+.faq-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:clamp(28px,5vw,80px)}
+.acc{border-top:1px solid var(--line)}
+.acc-item{border-bottom:1px solid var(--line)}
+.acc-item h3{font-size:inherit;letter-spacing:0}
+.acc-btn{width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:60px;padding:16px 0;border:0;background:none;color:var(--ink);font:500 18px/1.35 var(--f-body);text-align:left;cursor:pointer}
+.acc-btn .pm{flex-shrink:0;width:28px;height:28px;border:1px solid var(--line);border-radius:50%;position:relative}
+.acc-btn .pm::before,.acc-btn .pm::after{content:"";position:absolute;left:50%;top:50%;width:11px;height:1.5px;background:currentColor;transform:translate(-50%,-50%)}
+.acc-btn .pm::after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .2s}
+.acc-btn[aria-expanded="true"] .pm::after{transform:translate(-50%,-50%) rotate(0)}
+.acc-panel{padding:0 44px 20px 0;color:var(--ink-2);font-size:16px;max-width:66ch}
+.acc-panel p + p{margin-top:8px}
+@media (max-width:820px){.faq-grid{grid-template-columns:1fr}.acc-panel{padding-right:0}}
+
+/* Финальный блок */
+.final{background:var(--green);color:var(--on-green)}
+.final-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(32px,5vw,80px);align-items:start}
+.final .h2{font-size:clamp(34px,4.8vw,60px)}
+.final p.lead{color:var(--on-green);opacity:.85;margin-top:20px}
+.final .btn{margin-top:28px}
+.contacts{display:grid;gap:18px;font-size:16px}
+.contacts .row{display:grid;gap:4px;padding-bottom:16px;border-bottom:1px solid rgba(244,241,234,.22)}
+.contacts .k{font:12px var(--f-mono);letter-spacing:.07em;text-transform:uppercase;opacity:.75}
+.contacts a{text-decoration-color:rgba(244,241,234,.45);text-underline-offset:3px}
+.contacts .big{font-size:22px;font-weight:600;text-decoration:none}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips a{display:inline-flex;align-items:center;min-height:44px;padding:8px 14px;border:1px solid rgba(244,241,234,.35);border-radius:var(--r);text-decoration:none;font-size:15px}
+.chips a:hover{background:rgba(244,241,234,.1)}
+@media (max-width:820px){.final-grid{grid-template-columns:1fr}.final .btn{width:100%}}
+
+/* Подвал */
+.footer{padding-block:48px 40px;font-size:14px;color:var(--ink-2)}
+.f-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:32px}
+.footer h2{font-size:13px;font-family:var(--f-mono);letter-spacing:.07em;text-transform:uppercase;font-weight:500;color:var(--ink);margin-bottom:12px}
+.footer ul{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.footer a{min-height:32px;display:inline-flex;align-items:center}
+.demo-note{margin-top:32px;padding-top:20px;border-top:1px solid var(--line)}
+@media (max-width:820px){.f-grid{grid-template-columns:1fr}}
+
+/* Нижняя панель (мобильная) */
+.mbar{display:none}
+@media (max-width:760px){
+  .mbar{display:grid;grid-template-columns:1fr auto;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--paper);border-top:1px solid var(--line);
+    padding:10px max(12px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px))}
+  .mbar .btn{min-height:48px}
+  body{padding-bottom:calc(72px + env(safe-area-inset-bottom,0px))}
+  body.modal-open .mbar,body.menu-open .mbar{display:none}
+}
+
+/* Диалоги */
+dialog{border:0;padding:0;color:var(--ink);background:var(--paper)}
+dialog::backdrop{background:rgba(14,18,16,.6)}
+body.modal-open{overflow:hidden}
+.form-dlg{width:min(640px,calc(100% - 32px));max-height:calc(100dvh - 48px);border-radius:var(--r-lg);overflow:auto}
+.dlg-top{position:sticky;top:0;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 20px;background:var(--paper);border-bottom:1px solid var(--line)}
+.dlg-top .eyebrow{font-size:12px}
+.x{width:44px;height:44px;border:1px solid var(--line);border-radius:var(--r);background:var(--milk);color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.x svg{width:18px;height:18px}
+.dlg-body{padding:20px 24px 28px;display:grid;gap:20px}
+.demo-flag{display:flex;gap:10px;align-items:flex-start;font-size:14px;background:var(--wood-soft);border-radius:var(--r);padding:10px 14px}
+.demo-flag b{font-weight:600}
+.ctx{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;font-size:15px;padding:12px 14px;border:1px solid var(--line);border-radius:var(--r);background:var(--milk)}
+.ctx .k{color:var(--ink-2)}
+.ctx button{margin-left:auto;min-height:44px;border:0;background:none;color:var(--green-2);font:500 14px var(--f-body);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.step-title{font-size:24px;outline:none}
+.progress{display:flex;gap:6px}
+.progress span{height:3px;flex:1;background:var(--line);border-radius:2px}
+.progress span.on{background:var(--green-2)}
+fieldset{border:0;margin:0;padding:0;min-width:0}
+legend,.lbl-t{font-weight:500;font-size:15.5px;margin-bottom:10px;padding:0}
+.opt{display:flex;flex-wrap:wrap;gap:8px}
+.opt label{position:relative}
+.opt input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.opt span{display:inline-flex;align-items:center;min-height:44px;padding:10px 16px;border:1.5px solid var(--line);border-radius:var(--r);background:var(--milk);font-size:15px;cursor:pointer}
+.opt input:checked + span{border-color:var(--green-2);background:var(--green-tint);font-weight:500}
+.opt input:focus-visible + span{outline:3px solid var(--focus);outline-offset:2px}
+.field{display:grid;gap:6px}
+.field label{font-weight:500;font-size:15.5px}
+.field .opt-t{font-weight:400;color:var(--ink-2)}
+.field input[type=text],.field input[type=tel],.field textarea{width:100%;min-height:48px;padding:12px 14px;border:1.5px solid var(--line);border-radius:var(--r);background:var(--milk);color:var(--ink);font:16px/1.4 var(--f-body)}
+.field textarea{min-height:96px;resize:vertical}
+.field input:focus,.field textarea:focus{border-color:var(--green-2);outline:none;box-shadow:0 0 0 3px color-mix(in srgb,var(--green-2) 25%,transparent)}
+.hint{font-size:13.5px;color:var(--ink-2)}
+.err{font-size:14px;color:var(--error);font-weight:500}
+[aria-invalid="true"]{border-color:var(--error)!important}
+.consent{display:grid;grid-template-columns:24px 1fr;gap:10px;align-items:start;font-size:14.5px}
+.consent input{width:22px;height:22px;margin:1px 0 0;accent-color:var(--green)}
+.dlg-actions{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center}
+.dlg-actions .note{font-size:13.5px;color:var(--ink-2);flex:1 1 220px}
+.done-ico{width:48px;height:48px;border-radius:50%;background:var(--green-tint);color:var(--green-2);display:flex;align-items:center;justify-content:center}
+.summary{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 16px;font-size:15px;padding:16px;border:1px solid var(--line);border-radius:var(--r);background:var(--milk)}
+.summary dt{color:var(--ink-2)}.summary dd{margin:0;overflow-wrap:anywhere}
+@media (max-width:640px){
+  .form-dlg{width:100%;max-width:100%;height:100%;max-height:100%;margin:0;border-radius:0;
+    padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+  .dlg-body{padding:16px max(16px,env(safe-area-inset-right,0px)) 24px max(16px,env(safe-area-inset-left,0px))}
+  .dlg-actions .btn{flex:1 1 100%}
+}
+.lb{width:min(1100px,calc(100% - 32px));max-height:calc(100dvh - 32px);border-radius:var(--r-lg);background:#121513;color:#F4F1EA;overflow:auto}
+.lb-stage{position:relative;background:#0c0e0d}
+.lb-stage img{width:100%;max-height:calc(100dvh - 180px);object-fit:contain;margin:0 auto}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;border:0;background:rgba(244,241,234,.92);color:#1b1d1c;cursor:pointer;font-size:22px;display:flex;align-items:center;justify-content:center}
+.lb-prev{left:12px}.lb-next{right:12px}
+.lb-bar{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between;padding:16px 20px}
+.lb-bar .t{font-weight:600}
+.lb-bar .c{font:13px var(--f-mono);opacity:.75}
+.lb .x{position:absolute;top:12px;right:12px;background:rgba(244,241,234,.92);border:0;color:#1b1d1c;z-index:2}
+@media (max-width:640px){.lb{width:100%;max-width:100%;max-height:100%;height:100%;margin:0;border-radius:0}.lb-bar .btn{width:100%}}
+[hidden]{display:none!important}
+body{margin:0}
+</style>
+</head>
+<body>
+
+<!-- Данные компании, проектов и условий: заменяются здесь, разметка строится из них. -->
+<script id="site-data" type="application/json">
+{
+  "company": {
+    "name": "Кухни для Кухни",
+    "short": "КДК",
+    "phones": [{"label": "+7 (863) 301-55-35", "tel": "+78633015535"}, {"label": "+7 (961) 301-55-35", "tel": "+79613015535"}],
+    "email": "sales@kdk161.ru",
+    "address": "Ростов-на-Дону, пер. Элеваторный, 12, ЖК «Военвед-Сити»",
+    "hours": [["Пн–Чт", "10:00–19:00"], ["Пт–Сб", "10:00–17:00"], ["Вс", "выходной"]],
+    "hoursNote": "Консультации и визиты в салон — по предварительной записи, первичная консультация длится около 60 минут.",
+    "geo": "Ростов-на-Дону и Ростовская область",
+    "legal": "ИП Семенцова А. В. · ИНН 616511548295 · ОГРН 318619600187374 от 13.09.2018",
+    "map": "https://yandex.ru/maps/org/kukhni_dlya_kukhni/70086177383/",
+    "reviews": "https://yandex.ru/maps/org/kukhni_dlya_kukhni/70086177383/reviews/",
+    "privacy": "https://kdk161.ru/_privacy_policy",
+    "agreement": "https://kdk161.ru/_user_agreement",
+    "social": [["ВКонтакте", "https://vk.com/kdk161"], ["Telegram", "https://t.me/kdk161ru"], ["WhatsApp", "https://wa.me/79613015535"]]
+  },
+  "projects": [
+    {"id": "aksay", "title": "Кухня в Аксае", "kind": "Индивидуальный проект", "dir": "custom", "row": 1,
+     "specs": [["Фасады", "AGT 3027 Forest Green"], ["Корпус", "ЛДСП Kronospan 16 мм, Белый фасадный и Дуб Вотан"], ["Город", "Аксай"]],
+     "photos": [{"src": "img/aksay.jpg", "w": 1280, "h": 960, "alt": "Угловая кухня с матовыми зелёными фасадами AGT и верхними шкафами под дуб, открытые полки и винный стеллаж"}]},
+    {"id": "brig", "title": "«Бриг» с профилем Gola", "kind": "Индивидуальный проект", "dir": "custom", "row": 1,
+     "specs": [["Фасады", "без ручек, профиль Gola"], ["Фурнитура", "Firmax, ящики Firmax New Line с доводчиками"]],
+     "photos": [{"src": "img/brig-2.jpg", "w": 900, "h": 1200, "alt": "Прямая светлая кухня «Бриг» без ручек, чёрная столешница и подсветка рабочей зоны"},
+                {"src": "img/brig-1.jpg", "w": 1500, "h": 1126, "alt": "Светлая угловая кухня «Бриг» с островом, мраморным фартуком и встроенным духовым шкафом"}]},
+    {"id": "boston", "title": "«Бостон»", "kind": "Серийная модель", "dir": "serial", "row": 2,
+     "specs": [["Фасады", "белый глянец, без видимых ручек"], ["В галерее", "две установленные кухни"]],
+     "photos": [{"src": "img/boston-2.jpg", "w": 1280, "h": 960, "alt": "Прямая кухня «Бостон» с белыми глянцевыми фасадами, серой столешницей и фартуком под мрамор"},
+                {"src": "img/boston-1.jpg", "w": 1280, "h": 957, "alt": "Прямая кухня «Бостон» с белыми глянцевыми фасадами и серой столешницей"}]},
+    {"id": "amanda", "title": "«Аманда»", "kind": "Индивидуальный проект", "dir": "custom", "row": 2,
+     "specs": [["Фасады", "рамочные, белые, часть с остеклением"], ["Столешница", "тёмная, под камень"]],
+     "photos": [{"src": "img/amanda.jpg", "w": 1243, "h": 902, "alt": "Угловая кухня «Аманда» с белыми рамочными фасадами, витринами и тёмной столешницей"}]}
+  ],
+  "serialModels": [
+    ["Скала", 37000, "МДФ, плёнка"], ["Терра Gloss", 37000, "МДФ, плёнка"], ["Глетчер", 37000, "МДФ, плёнка"],
+    ["Мелисса", 38000, "МДФ, плёнка"], ["Ройс", 38000, "МДФ, плёнка"], ["Терра Soft", 38000, "МДФ, плёнка"],
+    ["Корато", 39000, "МДФ, плёнка"], ["Квадро", 39000, "МДФ, плёнка"], ["Олива", 39000, "МДФ, плёнка"],
+    ["Арка", 40000, "МДФ, плёнка"], ["Тренто", 41000, "МДФ, плёнка"], ["Монца", 42000, "МДФ, плёнка"],
+    ["Эстетик", 45000, "МДФ, пластик"], ["Маори", 58000, "МДФ, эмаль; ручка в фасаде"]
+  ],
+  "pricesCheckedOn": "22.10.2026",
+  "faq": [
+    ["Можно ли обратиться без точных размеров?", ["Да. Для предварительного расчёта хватит примерных размеров стен или описания помещения. Если планировка пока непонятна, отметьте «Пока не знаю» — это не мешает отправить запрос.", "Точные размеры снимает замерщик перед договором."]],
+    ["Чем серийная кухня отличается от индивидуальной?", ["Серийная кухня собирается на базе готовой модели: вы выбираете модель, цвет фасадов и конфигурацию из доступных вариантов.", "Индивидуальный проект строится от вашего помещения: размеры, ниши, коммуникации, системы хранения и встроенная техника."]],
+    ["Что влияет на итоговую стоимость?", ["Длина и планировка гарнитура, материал фасадов и столешницы, фурнитура и системы хранения, состав комплектации и дополнительные работы. Цена за погонный метр — ориентир для сравнения моделей, а не стоимость всей кухни."]],
+    ["Как проходит замер?", ["Специалист приезжает в согласованное время. По Ростову-на-Дону замер стоит 1 800 ₽, эта сумма засчитывается в стоимость заказа. Стоимость выезда за пределы города уточняйте у менеджера.", "Замерный лист и проект кухни передаются после оформления договора."]],
+    ["Включены ли доставка и установка?", ["В описании серийных моделей указано, что стартовая цена за погонный метр включает доставку по Ростову, подъём на 1 этаж или грузовым лифтом и монтаж с вырезами под мойку, варочную панель и вытяжку.", "На странице доставки опубликованы и отдельные тарифы: по Ростову — 2 500 ₽, по области — 2 500 ₽ + 60 ₽/км, ручной подъём — по габаритам. Что входит в стоимость вашей кухни, фиксируется в расчёте и договоре."]],
+    ["Можно ли учесть уже купленную технику?", ["Укажите модели и размеры техники в пожеланиях к расчёту. Возможность встроить конкретную модель подтвердят на консультации или при замере."]]
+  ]
+}
+</script>
+
+<a class="vh" href="#main">Перейти к содержанию</a>
+
+<header class="header">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Кухни для Кухни — в начало страницы">
+      <span class="brand-mark">КДК</span><span class="brand-name">Кухни<br>для Кухни</span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Разделы страницы">
+      <a href="#kitchens">Кухни</a>
+      <a href="#projects">Наши работы</a>
+      <a href="#cost">Стоимость</a>
+      <a href="#order">Как заказать</a>
+      <a href="#contacts">Контакты</a>
+      <a class="nav-phone" href="tel:+78633015535"><span class="eyebrow">Телефон</span><b>+7 (863) 301-55-35</b></a>
+    </nav>
+    <a class="h-phone num" href="tel:+78633015535">+7 (863) 301-55-35</a>
+    <button class="btn btn-primary btn-sm" type="button" data-open-form>Рассчитать кухню</button>
+    <button class="menu-btn" type="button" id="menuBtn" aria-expanded="false" aria-controls="nav" aria-label="Открыть меню">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" id="top" aria-labelledby="h1">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">Серийные кухни и кухни на заказ</p>
+        <h1 id="h1">Кухня под ваше пространство, привычки и бюджет</h1>
+        <p class="lead">Серийные решения и индивидуальные проекты. Поможем выбрать планировку, материалы и комплектацию под вашу задачу.</p>
+        <p class="geo"><span>Работаем: <b>Ростов-на-Дону и Ростовская область</b></span><span>Салон: <b>пер. Элеваторный, 12</b></span></p>
+        <div class="cta-row">
+          <button class="btn btn-primary" type="button" data-open-form>Рассчитать мою кухню</button>
+          <a class="btn btn-ghost" href="#projects">Посмотреть проекты</a>
+        </div>
+        <p class="next-step">Расскажите о помещении и пожеланиях — это поможет подготовить предварительный расчёт.</p>
+      </div>
+      <figure class="hero-fig">
+        <img src="img/aksay.jpg" width="1280" height="960" fetchpriority="high"
+             alt="Угловая кухня с матовыми зелёными фасадами и верхними шкафами под дуб в квартире с панорамным проёмом">
+        <figcaption class="fig-cap">
+          <span>Индивидуальный проект, Аксай</span>
+          <span class="mono">фасады AGT 3027 Forest Green · корпус ЛДСП 16 мм</span>
+        </figcaption>
+      </figure>
+    </div>
+    <dl class="facts">
+      <div><dt>Замер</dt><dd>1 800 ₽ по Ростову, в счёт заказа</dd></div>
+      <div><dt>Гарантия</dt><dd>1 год от производителя</dd></div>
+      <div><dt>Консультация</dt><dd>в салоне, по записи</dd></div>
+      <div><dt>Оплата</dt><dd>есть рассрочка от банков-партнёров</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="sec" id="kitchens" aria-labelledby="h-kitchens" style="padding-top:clamp(24px,4vw,56px)">
+  <div class="wrap">
+    <div class="choice-head">
+      <h2 class="h2" id="h-kitchens">Какая кухня подойдёт вам?</h2>
+      <p class="lead">Если стандартная планировка и важен понятный бюджет — начните с серийной модели. Если помещение со сложной геометрией или нужна особая организация хранения — с индивидуального проекта.</p>
+    </div>
+    <div class="paths">
+      <article class="path path-serial" aria-labelledby="h-serial">
+        <img src="img/boston-2.jpg" width="1280" height="960" loading="lazy" alt="Серийная кухня «Бостон»: белые глянцевые фасады, тёмная столешница">
+        <div class="path-body">
+          <p class="eyebrow">Готовая линейка</p>
+          <h3 id="h-serial">Серийные кухни</h3>
+          <ul>
+            <li>14 моделей в текущем каталоге: фасады МДФ в плёнке, пластике или эмали.</li>
+            <li>Выбираете модель, цвет и конфигурацию из доступных вариантов.</li>
+            <li>Цена модели указана за погонный метр — по ней легко сравнить варианты.</li>
+          </ul>
+          <p class="meta num">от 37 000 до 58 000 ₽ за погонный метр</p>
+          <button class="btn btn-primary" type="button" data-open-form data-dir="serial" data-ctx="Направление: серийная кухня">Подобрать серийную кухню</button>
+        </div>
+      </article>
+      <article class="path path-custom" aria-labelledby="h-custom">
+        <img src="img/brig-1.jpg" width="1500" height="1126" loading="lazy" style="object-position:50% 20%" alt="Индивидуальная кухня «Бриг» без ручек с островом и колонной под технику">
+        <div class="path-body">
+          <p class="eyebrow" style="color:var(--on-green);opacity:.8">Под ваше помещение</p>
+          <h3 id="h-custom">Индивидуальный проект</h3>
+          <ul>
+            <li>Проект по размерам помещения, с учётом ниш, коробов и коммуникаций.</li>
+            <li>Продуманное хранение: колонны, выдвижные системы, наполнение шкафов.</li>
+            <li>Встроенная техника, которую вы уже выбрали или купили.</li>
+          </ul>
+          <p class="meta">Базовые модели: Аманда, Берлин, Берта, Джаззи, Женева, Бриг. Стоимость — после расчёта.</p>
+          <button class="btn btn-light" type="button" data-open-form data-dir="custom" data-ctx="Направление: индивидуальный проект">Обсудить мой проект</button>
+        </div>
+      </article>
+    </div>
+    <div class="extras">
+      <p>Дополнят комплектацию</p>
+      <ul>
+        <li>Столешницы</li><li>Стеновые панели</li><li>Мойки</li><li>Смесители в цвет моек</li><li>Наполнение шкафов</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec projects" id="projects" aria-labelledby="h-projects">
+  <div class="wrap">
+    <div class="p-head">
+      <h2 class="h2" id="h-projects" style="max-width:16ch">Посмотрите, как это выглядит в реальных интерьерах</h2>
+      <p class="lead">Фотографии установленных кухонь из галереи компании. Нажмите на фото, чтобы открыть его крупно.</p>
+    </div>
+    <div id="projectRows"></div>
+    <p class="p-foot">Полная стоимость этих проектов не опубликована: она зависит от размеров и комплектации. По кнопке под проектом можно запросить расчёт похожей кухни под ваше помещение.</p>
+  </div>
+</section>
+
+<section class="sec" id="cost" aria-labelledby="h-cost">
+  <div class="wrap">
+    <h2 class="h2" id="h-cost" style="max-width:18ch">Из чего складывается стоимость кухни</h2>
+    <div class="cost-grid">
+      <ul class="factors">
+        <li>
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 26V8h10v18M14 26h14V16H14"/><path d="M4 30h24M4 29v2M28 29v2"/></svg>
+          <h3>Размеры и планировка</h3>
+          <p>Длина гарнитура, прямая, угловая или П-образная схема, высота верхних шкафов, колонны под технику.</p>
+        </li>
+        <li>
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="5" y="4" width="22" height="24" rx="1"/><path d="M5 20h22M11 12h10"/></svg>
+          <h3>Материалы фасадов и столешницы</h3>
+          <p>Плёнка, пластик, эмаль или AGT; толщина и декор столешницы, фартук в цвет.</p>
+        </li>
+        <li>
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="4" y="6" width="24" height="20" rx="1"/><path d="M4 16h24M13 11h6M13 21h6"/></svg>
+          <h3>Фурнитура и системы хранения</h3>
+          <p>Петли и направляющие с доводчиками, выдвижные ящики, посудосушитель, лоток для приборов, наполнение шкафов.</p>
+        </li>
+        <li>
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 26l9-9M17 7l8 8-4 4-8-8z"/><path d="M4 28l3-1-2-2z"/></svg>
+          <h3>Комплектация и дополнительные работы</h3>
+          <p>Мойка и смеситель, подсветка, встраивание техники, доставка за пределы города, ручной подъём.</p>
+        </li>
+      </ul>
+      <aside class="mp" aria-label="Что такое погонный метр">
+        <p class="eyebrow">Единица расчёта</p>
+        <svg viewBox="0 0 400 230" role="img" aria-labelledby="mpT">
+          <title id="mpT">Схема: один погонный метр — это метр длины гарнитура, включая нижние и верхние модули и столешницу</title>
+          <g fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="40" y="20" width="150" height="62" />
+            <rect x="190" y="20" width="150" height="62" />
+            <rect x="34" y="120" width="312" height="9" fill="currentColor" fill-opacity=".12"/>
+            <rect x="40" y="129" width="150" height="66" />
+            <rect x="190" y="129" width="150" height="66" />
+            <path d="M40 195v10h300v-10" stroke-width="1" opacity=".5"/>
+          </g>
+          <g fill="none" style="stroke:var(--wood)" stroke-width="1.5">
+            <path d="M40 216h300M40 210v12M340 210v12"/>
+          </g>
+          <g font-family="JetBrains Mono, monospace" font-size="12" fill="currentColor">
+            <text x="190" y="214" text-anchor="middle" style="fill:var(--wood);stroke:var(--stone);paint-order:stroke" stroke-width="6">1000 мм = 1 м/п</text>
+            <text x="352" y="55">верх</text>
+            <text x="352" y="128">стол-ца</text>
+            <text x="352" y="166">низ</text>
+          </g>
+        </svg>
+        <p class="quote">Цена за погонный метр — ориентир. Итоговая стоимость зависит от размеров, материалов и комплектации.</p>
+        <small>В каталоге цена за погонный метр считается по верхним и нижним модулям вместе со столешницей. Кухня длиной 3,2 м — это не «цена × 1», а расчёт по вашим размерам и выбранной комплектации.</small>
+      </aside>
+    </div>
+
+    <div class="scale-wrap">
+      <div class="scale-head">
+        <h3>Стартовые цены серийных моделей</h3>
+        <p id="scaleNote">₽ за погонный метр, «от». Нажмите на модель, чтобы запросить расчёт.</p>
+      </div>
+      <div class="axis" aria-hidden="true"><span class="lbl">Модель</span><div class="ticks" id="ticks"></div><span class="lbl" style="text-align:right">от, ₽ / м/п</span></div>
+      <ul class="models" id="models"></ul>
+    </div>
+
+    <div class="terms">
+      <div>
+        <h3>Замер</h3>
+        <p>1 800 ₽ по Ростову-на-Дону, сумма засчитывается в стоимость заказа. Выезд за город — по согласованию с менеджером.</p>
+      </div>
+      <div>
+        <h3>Доставка, подъём, монтаж</h3>
+        <p>Условия различаются для разных моделей и опубликованы на сайте по-разному. Состав услуг для вашей кухни фиксируется в расчёте и договоре.</p>
+      </div>
+      <div>
+        <h3>Рассрочка</h3>
+        <p>Банки-партнёры предоставляют рассрочку на покупки в салоне. Условия уточняйте у менеджера.</p>
+      </div>
+    </div>
+
+    <div class="cost-cta">
+      <button class="btn btn-primary" type="button" data-open-form data-ctx="Запрос из блока «Стоимость»">Получить расчёт под мои размеры</button>
+      <p>Это запрос, а не автоматический калькулятор: сумму готовит специалист по вашим размерам и пожеланиям.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec process" id="order" aria-labelledby="h-order">
+  <div class="wrap">
+    <h2 class="h2" id="h-order">Как проходит заказ</h2>
+    <ol class="steps">
+      <li>
+        <h3>Обсуждение задачи и предварительный расчёт</h3>
+        <p>По заявке, телефону или на консультации в салоне — по записи.</p>
+        <p class="res"><b>Вы получаете</b>ориентир по бюджету и понимание, серийная или индивидуальная кухня вам подходит.</p>
+      </li>
+      <li>
+        <h3>Согласование замера</h3>
+        <p>Специалист приезжает в удобное время. По Ростову — 1 800 ₽ в счёт заказа.</p>
+        <p class="res"><b>Вы получаете</b>точные размеры помещения, расположение коммуникаций и техники.</p>
+      </li>
+      <li>
+        <h3>Подбор материалов, планировки и комплектации</h3>
+        <p>Фасады, столешница, фурнитура, хранение, мойка и встраиваемая техника.</p>
+        <p class="res"><b>Вы получаете</b>вариант кухни, собранный под ваш бюджет и привычки.</p>
+      </li>
+      <li>
+        <h3>Согласование проекта, стоимости и условий</h3>
+        <p>Фиксируем состав, цену и услуги в договоре. Замерный лист и проект передаются после его оформления.</p>
+        <p class="res"><b>Вы получаете</b>договор с итоговой стоимостью и составом заказа.</p>
+      </li>
+      <li>
+        <h3>Изготовление, доставка и установка согласно договору</h3>
+        <p>Доставка — в будни с 18:00 до 23:00, водитель звонит за час. Сборка — в другой день, не в день доставки.</p>
+        <p class="res"><b>Вы получаете</b>установленную кухню и гарантию производителя 1 год.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec" id="trust" aria-labelledby="h-trust">
+  <div class="wrap">
+    <h2 class="h2" id="h-trust">Что можно проверить заранее</h2>
+    <div class="trust-grid">
+      <div class="reviews">
+        <h3>Отзывы клиентов</h3>
+        <p>Отзывы о салоне «Кухни для Кухни» собраны на Яндекс Картах. Читайте их в первоисточнике — там видны даты и ответы компании.</p>
+        <a class="btn btn-ghost btn-sm arrow" href="https://yandex.ru/maps/org/kukhni_dlya_kukhni/70086177383/reviews/" target="_blank" rel="noopener">Отзывы на Яндекс Картах</a>
+      </div>
+      <div>
+        <h3>Гарантия и возврат</h3>
+        <ul>
+          <li>Гарантия производителя на продукцию — 1 год.</li>
+          <li>Обмен и возврат — по Закону «О защите прав потребителей».</li>
+          <li>При приёмке товар проверяют по качеству, количеству и составу заказа; повреждения фиксируются в акте.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Компания</h3>
+        <ul>
+          <li>Салон с образцами: Ростов-на-Дону, пер. Элеваторный, 12.</li>
+          <li>Работа с 2018 года: ИП зарегистрирован 13.09.2018.</li>
+          <li>ИП Семенцова А. В., ИНН 616511548295.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="faq" aria-labelledby="h-faq" style="padding-top:0">
+  <div class="wrap faq-grid">
+    <div>
+      <h2 class="h2" id="h-faq">Частые вопросы</h2>
+      <p class="lead" style="margin-top:16px">Не нашли ответ? Задайте вопрос в заявке — его увидит специалист.</p>
+    </div>
+    <div class="acc" id="faqList"></div>
+  </div>
+</section>
+
+<section class="sec final" id="contacts" aria-labelledby="h-final">
+  <div class="wrap final-grid">
+    <div>
+      <h2 class="h2" id="h-final">Давайте начнём с вашей кухни</h2>
+      <p class="lead">Расскажите, что вы хотите изменить или обустроить. Можно начать с примерных размеров и понравившегося проекта.</p>
+      <button class="btn btn-light" type="button" data-open-form>Рассчитать мою кухню</button>
+    </div>
+    <div class="contacts" id="contactBox"></div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="f-grid">
+      <div>
+        <h2>Кухни для Кухни</h2>
+        <p id="legal"></p>
+        <p style="margin-top:8px">© 2018–2026, Ростов-на-Дону</p>
+      </div>
+      <nav aria-label="Навигация в подвале">
+        <h2>Разделы</h2>
+        <ul>
+          <li><a href="#kitchens">Кухни</a></li><li><a href="#projects">Наши работы</a></li><li><a href="#cost">Стоимость</a></li>
+          <li><a href="#order">Как заказать</a></li><li><a href="#contacts">Контакты</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2>Документы</h2>
+        <ul>
+          <li><a href="https://kdk161.ru/_privacy_policy" target="_blank" rel="noopener">Политика конфиденциальности</a></li>
+          <li><a href="https://kdk161.ru/_user_agreement" target="_blank" rel="noopener">Пользовательское соглашение</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="demo-note">Демоверсия главной страницы. Фотографии и условия взяты с сайта kdk161.ru; формы работают в демонстрационном режиме и никуда не отправляют данные. Информация на сайте не является публичной офертой.</p>
+  </div>
+</footer>
+
+<div class="mbar" role="region" aria-label="Быстрые действия">
+  <button class="btn btn-primary" type="button" data-open-form>Рассчитать кухню</button>
+  <a class="btn btn-ghost" href="tel:+78633015535" aria-label="Позвонить: +7 (863) 301-55-35">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
+    Позвонить
+  </a>
+</div>
+
+<!-- Форма предварительного расчёта -->
+<dialog class="form-dlg" id="formDlg" aria-labelledby="formTitle">
+  <div class="dlg-top">
+    <div>
+      <p class="eyebrow" id="formTitle">Предварительный расчёт</p>
+    </div>
+    <button class="x" type="button" data-close aria-label="Закрыть форму">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg>
+    </button>
+  </div>
+  <form id="calcForm" novalidate>
+    <div class="dlg-body" id="formBody">
+      <p class="demo-flag"><span aria-hidden="true">◐</span><span><b>Демоверсия.</b> Данные из формы никуда не отправляются и не сохраняются.</span></p>
+      <div class="progress" aria-hidden="true"><span class="on" id="pg1"></span><span id="pg2"></span></div>
+
+      <div class="ctx" id="ctx" hidden><span class="k">Вы выбрали:</span><b id="ctxText"></b><button type="button" id="ctxClear">Убрать</button></div>
+
+      <div id="step1" class="dlg-body" style="padding:0">
+        <h2 class="step-title" id="s1t" tabindex="-1">Шаг 1 из 2. О кухне</h2>
+        <fieldset>
+          <legend>Какая кухня вас интересует?</legend>
+          <div class="opt">
+            <label><input type="radio" name="kind" id="k-serial" value="Серийная"><span>Серийная</span></label>
+            <label><input type="radio" name="kind" id="k-custom" value="Индивидуальная"><span>Индивидуальная</span></label>
+            <label><input type="radio" name="kind" id="k-unknown" value="Пока не знаю"><span>Пока не знаю</span></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Планировка</legend>
+          <div class="opt">
+            <label><input type="radio" name="layout" id="l-line" value="Прямая"><span>Прямая</span></label>
+            <label><input type="radio" name="layout" id="l-corner" value="Угловая"><span>Угловая</span></label>
+            <label><input type="radio" name="layout" id="l-u" value="П-образная"><span>П-образная</span></label>
+            <label><input type="radio" name="layout" id="l-unknown" value="Пока не знаю"><span>Пока не знаю</span></label>
+          </div>
+        </fieldset>
+        <div class="field">
+          <label for="f-size">Примерные размеры <span class="opt-t">— необязательно</span></label>
+          <input type="text" id="f-size" name="size" autocomplete="off" aria-describedby="f-size-h">
+          <p class="hint" id="f-size-h">Например: «3,2 м вдоль окна и 1,8 м у двери». Можно без точности.</p>
+        </div>
+        <div class="field">
+          <label for="f-wish">Пожелания <span class="opt-t">— необязательно</span></label>
+          <textarea id="f-wish" name="wish" aria-describedby="f-wish-h"></textarea>
+          <p class="hint" id="f-wish-h">Цвет, материалы, техника, которую нужно встроить, что не устраивает в нынешней кухне.</p>
+        </div>
+        <div class="dlg-actions">
+          <p class="note">Все поля на этом шаге можно пропустить.</p>
+          <button class="btn btn-primary" type="button" id="toStep2">Далее: контакт</button>
+        </div>
+      </div>
+
+      <div id="step2" class="dlg-body" style="padding:0" hidden>
+        <h2 class="step-title" id="s2t" tabindex="-1">Шаг 2 из 2. Контакт</h2>
+        <p class="hint" style="font-size:15px">Телефон нужен, чтобы уточнить детали помещения и передать вам предварительный расчёт.</p>
+        <div class="field">
+          <label for="f-name">Имя <span class="opt-t">— необязательно</span></label>
+          <input type="text" id="f-name" name="name" autocomplete="given-name">
+        </div>
+        <div class="field">
+          <label for="f-phone">Телефон для связи</label>
+          <input type="tel" id="f-phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" required aria-describedby="f-phone-e">
+          <p class="err" id="f-phone-e" hidden></p>
+        </div>
+        <div class="field">
+          <div class="consent">
+            <input type="checkbox" id="f-consent" name="consent" aria-describedby="f-consent-e">
+            <label for="f-consent">Согласен на обработку персональных данных в соответствии с <a class="link" href="https://kdk161.ru/_privacy_policy" target="_blank" rel="noopener">политикой конфиденциальности</a></label>
+          </div>
+          <p class="err" id="f-consent-e" hidden></p>
+        </div>
+        <div class="dlg-actions">
+          <button class="btn btn-ghost" type="button" id="toStep1">Назад</button>
+          <button class="btn btn-primary" type="submit">Запросить предварительный расчёт</button>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="dlg-body" id="doneView" hidden>
+    <div class="done-ico" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+    <h2 class="step-title" id="doneT" tabindex="-1">Так будет выглядеть подтверждение заявки</h2>
+    <p class="demo-flag"><span aria-hidden="true">◐</span><span>Так будет выглядеть подтверждение заявки. В демоверсии данные не отправляются.</span></p>
+    <dl class="summary" id="summary"></dl>
+    <div class="dlg-actions"><button class="btn btn-primary" type="button" data-close>Вернуться на страницу</button></div>
+  </div>
+</dialog>
+
+<!-- Галерея -->
+<dialog class="lb" id="lbDlg" aria-labelledby="lbTitle">
+  <button class="x" type="button" data-close aria-label="Закрыть галерею">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg>
+  </button>
+  <div class="lb-stage">
+    <img id="lbImg" src="" alt="" width="1280" height="960">
+    <button class="lb-nav lb-prev" type="button" id="lbPrev" aria-label="Предыдущее фото">←</button>
+    <button class="lb-nav lb-next" type="button" id="lbNext" aria-label="Следующее фото">→</button>
+  </div>
+  <div class="lb-bar">
+    <div><p class="t" id="lbTitle"></p><p class="c" id="lbCount" aria-live="polite"></p></div>
+    <button class="btn btn-light btn-sm" type="button" id="lbAsk">Узнать стоимость похожего проекта</button>
+  </div>
+</dialog>
+
+<script>
+(() => {
+  const D = JSON.parse(document.getElementById('site-data').textContent);
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const rub = n => n.toLocaleString('ru-RU').replace(/ /g, ' ');
+
+  /* ---------- Проекты ---------- */
+  const rows = { 1: [], 2: [] };
+  D.projects.forEach(p => rows[p.row].push(p));
+  $('#projectRows').innerHTML = [1, 2].map(r => `<div class="p-row r${r}">` + rows[r].map(p => {
+    const ph = p.photos[0];
+    return `<article class="card" aria-labelledby="pt-${p.id}">
+      <button class="ph" type="button" data-gallery="${p.id}" aria-label="Открыть фото: ${esc(p.title)}${p.photos.length > 1 ? ', ' + p.photos.length + ' фото' : ''}">
+        <img src="${ph.src}" width="${ph.w}" height="${ph.h}" loading="lazy" decoding="async" alt="${esc(ph.alt)}">
+        ${p.photos.length > 1 ? `<span class="badge">${p.photos.length} фото</span>` : ''}
+      </button>
+      <p class="kind">${esc(p.kind)}</p>
+      <h3 id="pt-${p.id}">${esc(p.title)}</h3>
+      <dl class="specs">${p.specs.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('')}</dl>
+      <button class="btn btn-ghost btn-sm" type="button" data-open-form data-dir="${p.dir}" data-ctx="Похожий проект: ${esc(p.title)}">Узнать стоимость похожего проекта</button>
+    </article>`;
+  }).join('') + `</div>`).join('');
+
+  /* ---------- Шкала цен ---------- */
+  const MIN = 35000, MAX = 60000, pos = v => ((v - MIN) / (MAX - MIN) * 100).toFixed(2) + '%';
+  $('#ticks').innerHTML = [35000, 40000, 45000, 50000, 55000, 60000].map(t => `<span style="left:${pos(t)}">${t / 1000} тыс.</span>`).join('');
+  $('#models').innerHTML = D.serialModels.map(([n, p, f]) => `<li>
+    <button class="model" type="button" data-open-form data-dir="serial" data-ctx="Серийная модель «${esc(n)}»">
+      <span class="nm">${esc(n)}<small>${esc(f)}</small></span>
+      <span class="track" aria-hidden="true"><span class="dot" style="left:${pos(p)}"></span></span>
+      <span class="pr num">от ${rub(p)} ₽ <small>/ м/п</small></span>
+    </button></li>`).join('');
+  $('#scaleNote').textContent = `₽ за погонный метр, «от», по каталогу kdk161.ru на ${D.pricesCheckedOn}. Нажмите на модель, чтобы запросить расчёт.`;
+
+  /* ---------- FAQ ---------- */
+  $('#faqList').innerHTML = D.faq.map(([q, a], i) => `<div class="acc-item">
+    <h3><button class="acc-btn" type="button" aria-expanded="false" aria-controls="faq-${i}" id="faqb-${i}">${esc(q)}<span class="pm" aria-hidden="true"></span></button></h3>
+    <div class="acc-panel" id="faq-${i}" role="region" aria-labelledby="faqb-${i}" hidden>${a.map(t => `<p>${esc(t)}</p>`).join('')}</div>
+  </div>`).join('');
+  $('#faqList').addEventListener('click', e => {
+    const b = e.target.closest('.acc-btn'); if (!b) return;
+    const open = b.getAttribute('aria-expanded') === 'true';
+    b.setAttribute('aria-expanded', String(!open));
+    document.getElementById(b.getAttribute('aria-controls')).hidden = open;
+  });
+
+  /* ---------- Контакты ---------- */
+  const C = D.company;
+  $('#contactBox').innerHTML = `
+    <div class="row"><span class="k">Телефоны</span>${C.phones.map(p => `<a class="big num" href="tel:${p.tel}">${p.label}</a>`).join('')}</div>
+    <div class="row"><span class="k">Салон</span><span>${esc(C.address)}</span><a href="${C.map}" target="_blank" rel="noopener">Открыть на Яндекс Картах</a></div>
+    <div class="row"><span class="k">Часы работы</span><span class="num">${C.hours.map(([d, h]) => `${d}: ${h}`).join('<br>')}</span><span style="opacity:.8;font-size:14.5px">${esc(C.hoursNote)}</span></div>
+    <div class="row" style="border:0"><span class="k">Почта и мессенджеры</span><a href="mailto:${C.email}">${C.email}</a>
+      <div class="chips">${C.social.map(([n, u]) => `<a href="${u}" target="_blank" rel="noopener">${n}</a>`).join('')}</div></div>`;
+  $('#legal').textContent = C.legal;
+
+  /* ---------- Мобильное меню ---------- */
+  const menuBtn = $('#menuBtn'), nav = $('#nav');
+  const setMenu = open => {
+    nav.classList.toggle('open', open);
+    menuBtn.setAttribute('aria-expanded', String(open));
+    menuBtn.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
+    document.body.classList.toggle('menu-open', open);
+  };
+  menuBtn.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
+  nav.addEventListener('click', e => { if (e.target.closest('a')) setMenu(false); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && nav.classList.contains('open')) { setMenu(false); menuBtn.focus(); } });
+  matchMedia('(min-width: 901px)').addEventListener('change', e => { if (e.matches) setMenu(false); });
+
+  /* ---------- Диалоги: общий механизм ---------- */
+  let opener = null;
+  const openDlg = (dlg, from) => {
+    opener = from || document.activeElement;
+    setMenu(false);
+    document.body.classList.add('modal-open');
+    dlg.showModal();
+  };
+  $$('dialog').forEach(dlg => {
+    dlg.addEventListener('close', () => {
+      if ($$("dialog").some(d => d.open)) return;
+      document.body.classList.remove("modal-open");
+      if (opener && document.contains(opener)) opener.focus({ preventScroll: true });
+    });
+    dlg.addEventListener('click', e => {
+      if (e.target === dlg) dlg.close();                // клик по подложке
+      if (e.target.closest('[data-close]')) dlg.close();
+    });
+  });
+
+  /* ---------- Форма ---------- */
+  const formDlg = $('#formDlg'), form = $('#calcForm');
+  const step1 = $('#step1'), step2 = $('#step2'), done = $('#doneView');
+  const phone = $('#f-phone'), consent = $('#f-consent');
+  let ctx = '';
+
+  const showStep = n => {
+    step1.hidden = n !== 1; step2.hidden = n !== 2;
+    $('#pg2').classList.toggle('on', n === 2);
+    (n === 1 ? $('#s1t') : $('#s2t')).focus();
+  };
+  const setCtx = t => { ctx = t || ''; $('#ctx').hidden = !ctx; $('#ctxText').textContent = ctx; };
+  $('#ctxClear').addEventListener('click', () => { setCtx(''); $('#s1t').focus(); });
+
+  const resetForm = () => {
+    form.reset(); form.hidden = false; done.hidden = true;
+    [phone, consent].forEach(clearErr);
+  };
+
+  document.addEventListener('click', e => {
+    const t = e.target.closest('[data-open-form]'); if (!t) return;
+    if (!done.hidden) resetForm();
+    setCtx(t.dataset.ctx || '');
+    const dir = t.dataset.dir;
+    if (dir) $(dir === 'serial' ? '#k-serial' : '#k-custom').checked = true;
+    form.hidden = false;
+    openDlg(formDlg, t);
+    showStep(1);
+  });
+  $('#toStep2').addEventListener('click', () => showStep(2));
+  $('#toStep1').addEventListener('click', () => showStep(1));
+
+  // Маска телефона: +7 (XXX) XXX-XX-XX
+  const fmt = v => {
+    let d = v.replace(/\D/g, '');
+    if (d.startsWith('8')) d = '7' + d.slice(1);
+    if (d && !d.startsWith('7')) d = '7' + d;
+    d = d.slice(0, 11);
+    if (!d) return '';
+    const p = d.slice(1);
+    let out = '+7';
+    if (p.length) out += ' (' + p.slice(0, 3);
+    if (p.length >= 3) out += ')';
+    if (p.length > 3) out += ' ' + p.slice(3, 6);
+    if (p.length > 6) out += '-' + p.slice(6, 8);
+    if (p.length > 8) out += '-' + p.slice(8, 10);
+    return out;
+  };
+  phone.addEventListener('input', () => { phone.value = fmt(phone.value); if (phone.getAttribute('aria-invalid')) validatePhone(); });
+  consent.addEventListener('change', () => { if (consent.checked) clearErr(consent); });
+
+  function setErr(el, msg) { const e = document.getElementById(el.id + '-e'); e.textContent = msg; e.hidden = false; el.setAttribute('aria-invalid', 'true'); }
+  function clearErr(el) { const e = document.getElementById(el.id + '-e'); e.hidden = true; e.textContent = ''; el.removeAttribute('aria-invalid'); }
+  function validatePhone() {
+    const n = phone.value.replace(/\D/g, '').length;
+    if (!n) { setErr(phone, 'Укажите телефон — без него не получится передать расчёт.'); return false; }
+    if (n < 11) { setErr(phone, 'В номере не хватает цифр. Формат: +7 (900) 123-45-67.'); return false; }
+    clearErr(phone); return true;
+  }
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    if (step2.hidden) { showStep(2); return; }
+    const okP = validatePhone();
+    const okC = consent.checked;
+    if (!okC) setErr(consent, 'Отметьте согласие, чтобы отправить запрос.'); else clearErr(consent);
+    if (!okP) { phone.focus(); return; }
+    if (!okC) { consent.focus(); return; }
+    const fd = new FormData(form);
+    const rowsOut = [
+      ['Выбор', ctx], ['Кухня', fd.get('kind')], ['Планировка', fd.get('layout')],
+      ['Размеры', fd.get('size')], ['Пожелания', fd.get('wish')], ['Имя', fd.get('name')], ['Телефон', fd.get('phone')]
+    ].filter(([, v]) => v && String(v).trim());
+    $('#summary').innerHTML = rowsOut.map(([k, v]) => `<dt>${k}</dt><dd>${esc(v)}</dd>`).join('');
+    form.hidden = true; done.hidden = false;
+    $('#doneT').focus();
+  });
+
+  /* ---------- Галерея ---------- */
+  const lb = $('#lbDlg'), lbImg = $('#lbImg');
+  let gp = null, gi = 0;
+  const showPhoto = () => {
+    const ph = gp.photos[gi];
+    lbImg.src = ph.src; lbImg.alt = ph.alt; lbImg.width = ph.w; lbImg.height = ph.h;
+    $('#lbTitle').textContent = `${gp.title} · ${gp.kind}`;
+    $('#lbCount').textContent = gp.photos.length > 1 ? `Фото ${gi + 1} из ${gp.photos.length}` : '';
+    $('#lbPrev').hidden = $('#lbNext').hidden = gp.photos.length < 2;
+  };
+  document.addEventListener('click', e => {
+    const t = e.target.closest('[data-gallery]'); if (!t) return;
+    gp = D.projects.find(p => p.id === t.dataset.gallery); gi = 0;
+    showPhoto(); openDlg(lb, t);
+  });
+  const step = d => { gi = (gi + d + gp.photos.length) % gp.photos.length; showPhoto(); };
+  $('#lbPrev').addEventListener('click', () => step(-1));
+  $('#lbNext').addEventListener('click', () => step(1));
+  lb.addEventListener('keydown', e => {
+    if (gp && gp.photos.length > 1 && (e.key === 'ArrowLeft' || e.key === 'ArrowRight')) { e.preventDefault(); step(e.key === 'ArrowLeft' ? -1 : 1); }
+  });
+  $('#lbAsk').addEventListener('click', () => {
+    const from = opener, p = gp;
+    lb.close();
+    if (!done.hidden) resetForm();
+    setCtx(`Похожий проект: ${p.title}`);
+    $(p.dir === 'serial' ? '#k-serial' : '#k-custom').checked = true;
+    openDlg(formDlg, from); showStep(1);
+  });
+})();
+</script>
+
+</body>
+</html>
