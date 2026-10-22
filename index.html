@@ -730,15 +730,17 @@ legend{font-weight:600;font-size:16px;margin-bottom:10px;padding:0}
     document.body.classList.add('modal-open');
     dlg.showModal();
   };
+  // Снимаем блокировку прокрутки сразу при закрытии, не дожидаясь асинхронного события close
+  const afterClose = () => {
+    if ($$('dialog').some(d => d.open)) return;
+    document.body.classList.remove('modal-open');
+    if (opener && document.contains(opener) && document.activeElement !== opener) opener.focus({ preventScroll: true });
+  };
+  const closeDlg = dlg => { if (dlg.open) dlg.close(); afterClose(); };
   $$('dialog').forEach(dlg => {
-    dlg.addEventListener('close', () => {
-      if ($$('dialog').some(d => d.open)) return;
-      document.body.classList.remove('modal-open');
-      if (opener && document.contains(opener)) opener.focus({ preventScroll: true });
-    });
+    dlg.addEventListener('close', afterClose);
     dlg.addEventListener('click', e => {
-      if (e.target === dlg) dlg.close();
-      if (e.target.closest('[data-close]')) dlg.close();
+      if (e.target === dlg || e.target.closest('[data-close]')) closeDlg(dlg);
     });
   });
 
@@ -826,7 +828,7 @@ legend{font-weight:600;font-size:16px;margin-bottom:10px;padding:0}
   $('#lbAsk').addEventListener('click', () => {
     const from = opener, p = gp;
     lb.close();
-    openForm(from, `Похожий проект: ${p.title}`, p.dir);
+    openForm(from, `Похожий проект: ${p.title}`, p.dir);  // afterClose из события lb увидит открытую форму и ничего не сделает
   });
 })();
 </script>
